@@ -58,16 +58,11 @@ void enQueue(char item[], Queue * queue) {
     if(queueIsEmpty(queue))
         queue->front = element;
     else {
-        puts("ENQUEUE SECOND OR HIGHER ELEMENT");
         QueueElement * tmp = queue->front;
         if(isHigher(queue->front->entry, element->entry)){
-            puts("FRONT HAS HIGHER PRIORITY THAN NEW ELEMENT");
             element->next = queue->front;
             queue->front = element;
-            puts("NEW ELEMENT IS FRONT NOW");
         } else {
-            puts("NEW ELEMENT HAS HIGHER PRIORITY THAN FRONT");
-            puts("SEARCHING POSITION FOR NEW ELEMENT");
             while (tmp->next && isHigher(element->entry, tmp->next->entry))
                 tmp = tmp->next;
             element->next = tmp->next;
